@@ -1,11 +1,24 @@
 
 #include <iostream>
 #include <vector>
+
+using namespace std;
+
 int main() {
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-    int n; 
-    if (!(std::cin >> n)) return 0;
-    // TODO: read n values in [0,100], count, and print only those with count>0 in ascending value
+    int n[101] = {};
+
+    n[1] += 1;
+    n[2] += 1;
+    n[2] += 1;
+    n[100] += 1;
+    n[0] += 1;
+
+    for (int hodnota = 0; hodnota < 101; hodnota++) {
+
+        if (n[hodnota] > 0) {
+            cout << hodnota << " " << n[hodnota] << "\n";
+        }
+    }
+
     return 0;
 }

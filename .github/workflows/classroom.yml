@@ -1,0 +1,104 @@
+name: Classroom Autograding
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  autograding:
+    runs-on: self-hosted  # or [self-hosted, Windows]
+
+    steps:
+      - name: Checkout student repo
+        uses: actions/checkout@v4
+
+      - name: Task 01
+        id: task01
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 01 - even or odd"
+          command: python tests/run_tests.py --mode public --task task_01_even_or_odd
+          timeout: "5"
+          max-score: "1"
+
+      - name: Task 02
+        id: task02
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 02 - min of three"
+          command: python tests/run_tests.py --mode public --task task_02_min_of_three
+          timeout: "5"
+          max-score: "1"
+      
+      - name: Task 03
+        id: task03
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 03 - taxi fare"
+          command: python tests/run_tests.py --mode public --task task_03_taxi_fare
+          timeout: "5"
+          max-score: "1"
+      
+      - name: Task 04
+        id: task04
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 04 - leap year"
+          command: python tests/run_tests.py --mode public --task task_04_leap_year
+          timeout: "5"
+          max-score: "1"
+      
+      - name: Task 05
+        id: task05
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 05 - sum 1 to n"
+          command: python tests/run_tests.py --mode public --task task_05_sum_1_to_n
+          timeout: "5"
+          max-score: "1"
+
+      - name: Task 06
+        id: task06
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 06 - reverse digits"
+          command: python tests/run_tests.py --mode public --task task_06_reverse_digits
+          timeout: "5"
+          max-score: "1"
+
+      - name: Task 08
+        id: task08
+        continue-on-error: true
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "Task 08 - frequency table"
+          command: python tests/run_tests.py --mode public --task task_08_frequency_table
+          timeout: "5"
+          max-score: "1"
+
+      - name: Autograding Reporter
+        if: always() 
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          TASK01_RESULTS: ${{ steps.task01.outputs.result }}
+          TASK02_RESULTS: ${{ steps.task02.outputs.result }}
+          TASK03_RESULTS: ${{ steps.task03.outputs.result }}
+          TASK04_RESULTS: ${{ steps.task04.outputs.result }}
+          TASK05_RESULTS: ${{ steps.task05.outputs.result }}
+          TASK06_RESULTS: ${{ steps.task06.outputs.result }}
+          TASK08_RESULTS: ${{ steps.task08.outputs.result }}
+        with:
+          runners: "task01,task02,task03,task04,task05,task06,task08"

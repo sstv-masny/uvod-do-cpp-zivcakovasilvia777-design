@@ -1,0 +1,74 @@
+{
+  "tests": [
+    {
+      "name": "Task 01 - even or odd",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Task 02 - min of three",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Task 03 - taxi fare",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Task 04 - leap year",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Task 05 - sum 1 to n",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Task 06 - reverse digits",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Task 08 - frequency table",
+      "setup": "",
+      "run": "echo",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}
