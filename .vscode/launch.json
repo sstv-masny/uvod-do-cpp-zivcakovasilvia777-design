@@ -1,37 +1,49 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "C++ (MinGW, gdb): F5",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}\\build\\app.exe",
-      "cwd": "${workspaceFolder}",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb.exe", // ← set to your actual gdb.exe
-      // ─────────────── args explained ───────────────
-      // "args": [
-      // Each item = ONE CLI token, exactly like argv[i].
-      // Example program usage:
-      //   ./app <name> --count 3 --title "Hello World"
-      // "Alice", // argv[1]  ← first positional argument
-      // "--count",
-      // "3", // argv[2], argv[3] ← flag + its value (separate items)
-      // "--title",
-      // "Hello World", // spaces are fine: keep as one array item
-      // Alternative forms:
-      // "--count=3",       // single token works too, many parsers accept it
-      // "--flag"           // boolean/toggle flag (no value)
-      // ],
-      "args": [],
-      "stopAtEntry": true,
-      "externalConsole": false,
-      "preLaunchTask": "build-mingw",
-      "setupCommands": [
+    "version": "0.2.0",
+    "configurations": [
         {
-          "text": "-enable-pretty-printing"
+            "name": "C++ (MinGW, gdb): F5",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\app.exe",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb.exe",
+            "args": [],
+            "stopAtEntry": true,
+            "externalConsole": false,
+            "preLaunchTask": "build-mingw",
+            "setupCommands": [
+                {
+                    "text": "-enable-pretty-printing"
+                }
+            ]
+        },
+        {
+            "name": "C/C++: gcc.exe build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Program Files\\mingw32\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc.exe build active file"
         }
-      ]
-    }
-  ]
+    ]
 }
